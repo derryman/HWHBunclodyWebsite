@@ -239,7 +239,7 @@ body {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(208, 208, 66);
+    background-color: yellow;
     min-width: 160px;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
     border-radius: 6px;
@@ -255,7 +255,8 @@ body {
   }
   
   .dropdown-content a:hover {
-    background-color:yellow;
+    color: yellow;
+    background-color:#0a5909;
   }
   
   .dropdown:hover .dropdown-content {
