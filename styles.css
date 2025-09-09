@@ -117,7 +117,7 @@ body {
   
   /* Navigation Bar */
   nav {
-    background-color: rgb(208, 208, 66); /* Lighter green */
+    background-color: yellow; /* Lighter green */
     display: flex;
     justify-content: center;
     padding: 10px 0;
