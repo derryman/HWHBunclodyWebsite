@@ -198,7 +198,7 @@ body {
   }
   
   .mobile-nav-content {
-    background-color: yellow;
+    background-color: yellow !important;
     width: 85%;
     max-width: 320px;
     height: 100%;
@@ -209,6 +209,9 @@ body {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1001;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   .mobile-nav-overlay.active .mobile-nav-content {
