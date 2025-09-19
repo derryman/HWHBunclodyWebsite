@@ -34,23 +34,52 @@
 
   <!-- Navigation Menu -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="ClubDev.html">Club Development</a>
-    <a href="ClubHistory.html">Club History</a>
-    <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
-    <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
-    <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
-    <div class="dropdown">
-        <a href="#">More ▾</a>
-        <div class="dropdown-content">
-          <a href="Constitution.html">Constitution</a>
-          <a href="Gallery.html">Gallery</a>
-          <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
-          <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="ClubDev.html" class="active">Club Development</a>
+      <a href="ClubHistory.html">Club History</a>
+      <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
+      <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
+      <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
+      <div class="dropdown">
+          <a href="#">More ▾</a>
+          <div class="dropdown-content">
+            <a href="Constitution.html">Constitution</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
+            <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
+          </div>
         </div>
+    </div>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+      <div class="mobile-nav-content">
+        <h3 class="mobile-nav-title">Menu</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="ClubDev.html">Club Development</a>
+        <a href="ClubHistory.html">Club History</a>
+        <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
+        <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
+        <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
+        <a href="Constitution.html">Constitution</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
+        <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
       </div>
+    </div>
   </nav>
 
   <!-- Patronage Text Section -->
@@ -166,6 +195,83 @@
       menu.style.width = "250px";
     }
   }
+  
+  // Mobile Navigation Toggle - Enhanced Version
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing mobile navigation...');
+    
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+    const mobileContent = document.querySelector('.mobile-nav-content');
+    const body = document.body;
+    
+    console.log('Elements found:', {
+      toggle: !!mobileToggle,
+      overlay: !!mobileOverlay,
+      content: !!mobileContent
+    });
+    
+    if (!mobileToggle || !mobileOverlay || !mobileContent) {
+      console.error('Mobile navigation elements not found!');
+      return;
+    }
+    
+    // Toggle menu function
+    function toggleMobileMenu() {
+      console.log('Toggling mobile menu...');
+      const isActive = mobileOverlay.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        mobileToggle.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        body.classList.remove('nav-open');
+        console.log('Mobile menu closed');
+      } else {
+        // Open menu
+        mobileToggle.classList.add('active');
+        mobileOverlay.classList.add('active');
+        body.classList.add('nav-open');
+        console.log('Mobile menu opened');
+      }
+    }
+    
+    // Add click event to hamburger button
+    mobileToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+    
+    // Close menu when clicking on overlay background
+    mobileOverlay.addEventListener('click', function(e) {
+      if (e.target === mobileOverlay) {
+        console.log('Overlay clicked, closing mobile menu');
+        toggleMobileMenu();
+      }
+    });
+    
+    // Close menu when clicking on nav links
+    const mobileNavLinks = mobileContent.querySelectorAll('a');
+    console.log('Found', mobileNavLinks.length, 'navigation links');
+    
+    mobileNavLinks.forEach((link, index) => {
+      link.addEventListener('click', function() {
+        console.log('Navigation link clicked:', link.textContent);
+        toggleMobileMenu();
+      });
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+        console.log('Escape key pressed, closing mobile menu');
+        toggleMobileMenu();
+      }
+    });
+    
+    console.log('Mobile navigation initialized successfully');
+  });
   </script>
 
 </body>

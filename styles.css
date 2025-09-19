@@ -727,11 +727,13 @@ body {
     
     /* Hero image adjustments for mobile */
     .hero1 {
-        height: 40vh; /* slightly smaller on mobile */
+        height: 35vh; /* smaller to fit mobile screens */
+        max-height: 300px; /* prevent too large on small screens */
     }
     
     .hero {
-        height: 60vh; /* smaller on mobile */
+        height: 50vh; /* smaller to fit mobile screens */
+        max-height: 400px; /* prevent too large on small screens */
     }
     
     .hero-image {
@@ -739,6 +741,7 @@ body {
         height: 100%;
         object-fit: cover;
         object-position: center;
+        max-width: 100%;
     }
     
     /* Hero text adjustments */
@@ -881,16 +884,19 @@ body {
     
     /* Hero images for very small screens */
     .hero1 {
-        height: 35vh;
+        height: 30vh;
+        max-height: 250px;
     }
     
     .hero {
-        height: 50vh;
+        height: 45vh;
+        max-height: 350px;
     }
     
     .hero-image {
         object-fit: cover;
         object-position: center;
+        max-width: 100%;
     }
     
     /* Hero text for very small screens */
@@ -971,16 +977,19 @@ body {
     
     /* Hero images for mobile landscape */
     .hero1 {
-        height: 30vh;
+        height: 25vh;
+        max-height: 200px;
     }
     
     .hero {
-        height: 40vh;
+        height: 35vh;
+        max-height: 300px;
     }
     
     .hero-image {
         object-fit: cover;
         object-position: center;
+        max-width: 100%;
     }
     
     /* Navigation for mobile landscape */
