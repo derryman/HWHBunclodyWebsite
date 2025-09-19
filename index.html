@@ -107,11 +107,16 @@
       const mobileOverlay = document.querySelector('.mobile-nav-overlay');
       const body = document.body;
       
+      console.log('Mobile toggle element:', mobileToggle);
+      console.log('Mobile overlay element:', mobileOverlay);
+      
       if (mobileToggle && mobileOverlay) {
         mobileToggle.addEventListener('click', function() {
+          console.log('Hamburger menu clicked');
           mobileToggle.classList.toggle('active');
           mobileOverlay.classList.toggle('active');
           body.classList.toggle('nav-open');
+          console.log('Menu toggled. Active classes:', mobileOverlay.classList.contains('active'));
         });
         
         // Close menu when clicking on overlay
