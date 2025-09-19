@@ -6,7 +6,7 @@ body {
   .hero1 {
     position: relative;
     width: 100%;
-    height: 50vh; /* adjust: try 50–55vh */
+    height: 45vh; /* reduced from 50vh for better proportions */
     overflow: hidden;
   }
   
