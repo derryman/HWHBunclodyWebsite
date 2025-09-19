@@ -34,23 +34,51 @@
 
   <!-- Navigation Menu -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="ClubDev.html">Club Development</a>
-    <a href="ClubHistory.html">Club History</a>
-    <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
-    <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
-    <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
-    <div class="dropdown">
-        <a href="#">More ▾</a>
-        <div class="dropdown-content">
-          <a href="Constitution.html">Constitution</a>
-          <a href="Gallery.html">Gallery</a>
-          <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
-          <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="ClubDev.html">Club Development</a>
+      <a href="ClubHistory.html">Club History</a>
+      <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
+      <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
+      <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
+      <div class="dropdown">
+          <a href="#">More ▾</a>
+          <div class="dropdown-content">
+            <a href="Constitution.html">Constitution</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
+            <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
+          </div>
         </div>
+    </div>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+      <div class="mobile-nav-content">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="ClubDev.html">Club Development</a>
+        <a href="ClubHistory.html">Club History</a>
+        <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
+        <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
+        <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
+        <a href="Constitution.html">Constitution</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
+        <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
       </div>
+    </div>
   </nav>
 
   <!-- Main Content Container -->
@@ -71,6 +99,40 @@
     </section>
   </div>
 
-  
+  <script>
+    // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+      const body = document.body;
+      
+      if (mobileToggle && mobileOverlay) {
+        mobileToggle.addEventListener('click', function() {
+          mobileToggle.classList.toggle('active');
+          mobileOverlay.classList.toggle('active');
+          body.classList.toggle('nav-open');
+        });
+        
+        // Close menu when clicking on overlay
+        mobileOverlay.addEventListener('click', function(e) {
+          if (e.target === mobileOverlay) {
+            mobileToggle.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            body.classList.remove('nav-open');
+          }
+        });
+        
+        // Close menu when clicking on nav links
+        const mobileNavLinks = mobileOverlay.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileToggle.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            body.classList.remove('nav-open');
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
