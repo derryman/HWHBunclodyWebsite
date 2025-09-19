@@ -6,7 +6,16 @@ body {
     width: 100%;
     max-width: 100vw;
     box-sizing: border-box;
-  }
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
   .hero1 {
     position: relative;
     width: 100%;
@@ -733,15 +742,15 @@ body {
         height: 250px !important;
     }
     
-    /* Hero image adjustments for mobile */
+    /* Hero image adjustments for mobile - reduced by 25% */
     .hero1 {
-        height: 35vh; /* smaller to fit mobile screens */
-        max-height: 300px; /* prevent too large on small screens */
+        height: 26vh; /* reduced from 35vh by 25% */
+        max-height: 225px; /* reduced from 300px by 25% */
     }
     
     .hero {
-        height: 50vh; /* smaller to fit mobile screens */
-        max-height: 400px; /* prevent too large on small screens */
+        height: 38vh; /* reduced from 50vh by 25% */
+        max-height: 300px; /* reduced from 400px by 25% */
     }
     
     .hero-image {
@@ -751,6 +760,9 @@ body {
         object-position: center;
         max-width: 100%;
         box-sizing: border-box;
+        display: block;
+        margin: 0;
+        padding: 0;
     }
     
     /* Ensure hero containers don't exceed screen width */
@@ -759,6 +771,9 @@ body {
         max-width: 100vw;
         box-sizing: border-box;
         overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: relative;
     }
     
     /* Hero text adjustments */
@@ -899,22 +914,27 @@ body {
         display: none !important;
     }
     
-    /* Hero images for very small screens */
+    /* Hero images for very small screens - reduced by 25% */
     .hero1 {
-        height: 30vh;
-        max-height: 250px;
+        height: 23vh; /* reduced from 30vh by 25% */
+        max-height: 188px; /* reduced from 250px by 25% */
     }
     
     .hero {
-        height: 45vh;
-        max-height: 350px;
+        height: 34vh; /* reduced from 45vh by 25% */
+        max-height: 263px; /* reduced from 350px by 25% */
     }
     
     .hero-image {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         max-width: 100%;
         box-sizing: border-box;
+        display: block;
+        margin: 0;
+        padding: 0;
     }
     
     /* Ensure hero containers don't exceed screen width on very small screens */
@@ -923,6 +943,9 @@ body {
         max-width: 100vw;
         box-sizing: border-box;
         overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: relative;
     }
     
     /* Hero text for very small screens */
@@ -1001,22 +1024,27 @@ body {
         height: 20px;
     }
     
-    /* Hero images for mobile landscape */
+    /* Hero images for mobile landscape - reduced by 25% */
     .hero1 {
-        height: 25vh;
-        max-height: 200px;
+        height: 19vh; /* reduced from 25vh by 25% */
+        max-height: 150px; /* reduced from 200px by 25% */
     }
     
     .hero {
-        height: 35vh;
-        max-height: 300px;
+        height: 26vh; /* reduced from 35vh by 25% */
+        max-height: 225px; /* reduced from 300px by 25% */
     }
     
     .hero-image {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         max-width: 100%;
         box-sizing: border-box;
+        display: block;
+        margin: 0;
+        padding: 0;
     }
     
     /* Ensure hero containers don't exceed screen width in landscape */
@@ -1025,6 +1053,9 @@ body {
         max-width: 100vw;
         box-sizing: border-box;
         overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: relative;
     }
     
     /* Navigation for mobile landscape */
