@@ -101,43 +101,81 @@
   </div>
 
   <script>
-    // Mobile Navigation Toggle
+    // Mobile Navigation Toggle - Enhanced Version
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing mobile navigation...');
+      
       const mobileToggle = document.querySelector('.mobile-menu-toggle');
       const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+      const mobileContent = document.querySelector('.mobile-nav-content');
       const body = document.body;
       
-      console.log('Mobile toggle element:', mobileToggle);
-      console.log('Mobile overlay element:', mobileOverlay);
+      console.log('Elements found:', {
+        toggle: !!mobileToggle,
+        overlay: !!mobileOverlay,
+        content: !!mobileContent
+      });
       
-      if (mobileToggle && mobileOverlay) {
-        mobileToggle.addEventListener('click', function() {
-          console.log('Hamburger menu clicked');
-          mobileToggle.classList.toggle('active');
-          mobileOverlay.classList.toggle('active');
-          body.classList.toggle('nav-open');
-          console.log('Menu toggled. Active classes:', mobileOverlay.classList.contains('active'));
-        });
-        
-        // Close menu when clicking on overlay
-        mobileOverlay.addEventListener('click', function(e) {
-          if (e.target === mobileOverlay) {
-            mobileToggle.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            body.classList.remove('nav-open');
-          }
-        });
-        
-        // Close menu when clicking on nav links
-        const mobileNavLinks = mobileOverlay.querySelectorAll('a');
-        mobileNavLinks.forEach(link => {
-          link.addEventListener('click', function() {
-            mobileToggle.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            body.classList.remove('nav-open');
-          });
-        });
+      if (!mobileToggle || !mobileOverlay || !mobileContent) {
+        console.error('Mobile navigation elements not found!');
+        return;
       }
+      
+      // Toggle menu function
+      function toggleMenu() {
+        console.log('Toggling menu...');
+        const isActive = mobileOverlay.classList.contains('active');
+        
+        if (isActive) {
+          // Close menu
+          mobileToggle.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          body.classList.remove('nav-open');
+          console.log('Menu closed');
+        } else {
+          // Open menu
+          mobileToggle.classList.add('active');
+          mobileOverlay.classList.add('active');
+          body.classList.add('nav-open');
+          console.log('Menu opened');
+        }
+      }
+      
+      // Add click event to hamburger button
+      mobileToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      });
+      
+      // Close menu when clicking on overlay background
+      mobileOverlay.addEventListener('click', function(e) {
+        if (e.target === mobileOverlay) {
+          console.log('Overlay clicked, closing menu');
+          toggleMenu();
+        }
+      });
+      
+      // Close menu when clicking on nav links
+      const mobileNavLinks = mobileContent.querySelectorAll('a');
+      console.log('Found', mobileNavLinks.length, 'navigation links');
+      
+      mobileNavLinks.forEach((link, index) => {
+        link.addEventListener('click', function() {
+          console.log('Navigation link clicked:', link.textContent);
+          toggleMenu();
+        });
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+          console.log('Escape key pressed, closing menu');
+          toggleMenu();
+        }
+      });
+      
+      console.log('Mobile navigation initialized successfully');
     });
   </script>
 </body>
