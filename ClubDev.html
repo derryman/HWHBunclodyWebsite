@@ -52,12 +52,13 @@
         </div>
       </div>
   </nav>
+
   <!-- Patronage Text Section -->
   <div class="section-container">
     <section class="patronage-text">
       <h2>CAIRDE TIG LEATH SLÍ BUN CLÓIDIGHE</h2>
       <h3>Club Patronage Programme</h3>
-
+     <a href="Packageoptions.html" class="purchase-btn">☰ View Purchase Options</a>
       <h4>Corporate Patronage</h4>
       <p>48 monthly payments of €100 or 4 annual payments of €1200</p>
       <h5>Annual Benefits for Fully Subscribed Patrons over 4 years</h5>
@@ -156,5 +157,16 @@
   
     setInterval(() => showSlide(index + 1), 10000);
   </script>
+  <script>
+  function toggleMenu() {
+    const menu = document.getElementById("sideMenu");
+    if (menu.style.width === "250px") {
+      menu.style.width = "0";
+    } else {
+      menu.style.width = "250px";
+    }
+  }
+  </script>
+
 </body>
 </html>

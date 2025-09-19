@@ -551,3 +551,31 @@ body {
 .heroteams-slider .next {
   right: 10px;
 }
+/* Side Menu Button */
+/* Container for top-right button */
+.page-header-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px auto;
+  max-width: 1200px;  /* match your content width */
+  padding-right: 20px;
+}
+
+/* Button styling */
+.purchase-btn {
+  background: #006400;  /* club green */
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #004b00;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.purchase-btn:hover {
+  background: #228B22;
+  transform: translateY(-2px);
+}
+

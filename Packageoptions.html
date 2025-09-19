@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cairde Patronage | HWH Bunclody GAA</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Stripe Buy Button -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2, h3 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .package-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .package-card h3 {
+      margin-bottom: 10px;
+      color: #006400; /* Club green */
+    }
+
+    .package-options {
+      margin-top: 15px;
+    }
+
+    .package-options p {
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    stripe-buy-button {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="top-header">
+    <div class="club-center">
+      <span class="club-left">Halfway House</span>
+      <div class="club-logo">
+        <img src="mainlogo.jpg" alt="Club Logo">
+      </div>
+      <span class="club-right">Bunclody GAA</span>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/OfficialHWHBun/" target="_blank">
+        <img src="facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/hwhbunclody/?hl=en" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="https://x.com/officialhwhbun?lang=en" target="_blank">
+        <img src="x.png" alt="X">
+      </a>
+      <a href="https://www.linkedin.com/in/half-way-house-bunclody-gaa-club-7a921a380/?originalSubdomain=ie" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn">
+      </a>
+    </div>      
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="ClubDev.html">Club Development</a>
+    <a href="ClubHistory.html">Club History</a>
+    <a href="https://www.oneills.com/shop-by-team/gaa/ireland/hwh-bunclody-gaa.html">Club Shop</a>
+    <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
+    <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
+    <div class="dropdown">
+      <a href="#">More ▾</a>
+      <div class="dropdown-content">
+        <a href="Constitution.html">Constitution</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
+        <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Patronage Packages -->
+  <h2>Cairde Tig Leath Slí Bun Cloidighe</h2>
+  <h3>Club Patronage Programme</h3>
+
+  <div class="packages">
+
+    <!-- Individual Package -->
+    <div class="package-card">
+      <h3>Individual Package</h3>
+      <div class="package-options">
+        <p>Monthly</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S7a7ZEPUPSRJkbgA13p9puZ"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+
+        <p>Quarterly</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gZxEPUPSRJkbgZXpsKQRG"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+
+        <p>Annually</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8JXrEPUPSRJkbgmJok18H2"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+      </div>
+    </div>
+
+    <!-- Family Package -->
+    <div class="package-card">
+      <h3>Family Package</h3>
+      <div class="package-options">
+        <p>Monthly</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gbaEPUPSRJkbg6lQvfpjP"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+
+        <p>Quarterly</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gc9EPUPSRJkbgdGUs5ZIb"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+
+        <p>Annually</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gdBEPUPSRJkbgbo2NTcmD"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+      </div>
+    </div>
+
+    <!-- Corporate Package -->
+    <div class="package-card">
+      <h3>Corporate Package</h3>
+      <div class="package-options">
+        <p>Monthly</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gipEPUPSRJkbgqjab3ZlO"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+
+        <p>Quarterly</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gjcEPUPSRJkbglqsIQhWx"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+
+        <p>Annually</p>
+        <stripe-buy-button buy-button-id="buy_btn_1S8gkIEPUPSRJkbgta5Gldpz"
+          publishable-key="pk_live_51S6ZLOEPUPSRJkbg62kHgefR8l4PlDAkwSALOgQOVlckK0kmFTicDSN25JBKp62ItxJ0e06RJxisInNKHRLQWWy400FfaDe3YX">
+        </stripe-buy-button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
