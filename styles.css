@@ -720,6 +720,7 @@ html {
     
     .contact-sidebar {
         order: 2;
+        padding: 1rem;
     }
     
     .contact-main {
@@ -727,13 +728,40 @@ html {
         padding: 1rem;
     }
     
-    /* Table responsiveness */
+    /* Enhanced table responsiveness for mobile */
     table {
         font-size: 0.8em;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
     
     table th, table td {
         padding: 0.5rem 0.3rem;
+        min-width: 80px;
+    }
+    
+    /* Make table headers more compact on mobile */
+    table th {
+        font-size: 0.75em;
+        padding: 0.4rem 0.2rem;
+    }
+    
+    /* Make table cells more compact */
+    table td {
+        font-size: 0.7em;
+        padding: 0.4rem 0.2rem;
+        word-break: break-word;
+    }
+    
+    /* Ensure clickable links are touch-friendly */
+    table a {
+        display: inline-block;
+        padding: 2px 4px;
+        min-height: 20px;
+        line-height: 1.2;
     }
     
     /* Map responsiveness */
@@ -962,12 +990,41 @@ html {
     }
     
     /* Tables for very small screens */
+    /* Enhanced table responsiveness for very small screens */
     table {
         font-size: 0.7em;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
     
     table th, table td {
         padding: 0.3rem 0.2rem;
+        min-width: 70px;
+    }
+    
+    /* Make table headers even more compact on very small screens */
+    table th {
+        font-size: 0.65em;
+        padding: 0.3rem 0.1rem;
+    }
+    
+    /* Make table cells even more compact */
+    table td {
+        font-size: 0.6em;
+        padding: 0.3rem 0.1rem;
+        word-break: break-word;
+    }
+    
+    /* Ensure clickable links are touch-friendly on small screens */
+    table a {
+        display: inline-block;
+        padding: 1px 2px;
+        min-height: 18px;
+        line-height: 1.1;
+        font-size: 0.65em;
     }
     
     /* Gallery iframe for very small screens */
