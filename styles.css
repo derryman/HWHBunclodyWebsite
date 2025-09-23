@@ -376,6 +376,11 @@ html {
     font-weight: bold;
   }
   
+  /* Hide mobile social section on desktop */
+  .mobile-social-section {
+    display: none;
+  }
+  
   .pitch-box {
     display: inline-block;
     background: #0a5909;
@@ -860,11 +865,49 @@ html {
     .contact-sidebar {
         order: 2;
         padding: 1rem;
+        display: none; /* Hide sidebar on mobile */
     }
     
     .contact-main {
         order: 1;
         padding: 1rem;
+    }
+    
+    /* Show mobile social section on mobile */
+    .mobile-social-section {
+        display: block;
+        margin: 20px 0;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        border-left: 4px solid #0a5909;
+    }
+    
+    .mobile-social-section h3 {
+        color: #0a5909;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    
+    .social-links-mobile {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .social-links-mobile a {
+        background: #0a5909;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9em;
+        transition: background 0.3s ease;
+    }
+    
+    .social-links-mobile a:hover {
+        background: #0d6b0c;
     }
     
     /* Enhanced table responsiveness for mobile */
