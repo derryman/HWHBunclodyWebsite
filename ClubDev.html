@@ -158,6 +158,8 @@
       </div>
       <button class="prev">&#10094;</button>
       <button class="next">&#10095;</button>
+      <button class="play-pause" id="playPauseBtn">⏸️</button>
+      <button class="fullscreen" id="fullscreenBtn">⛶</button>
     </section>
   </div>
 
@@ -165,7 +167,12 @@
     const slides = document.querySelectorAll('.hero-slider .slide');
     const prev = document.querySelector('.hero-slider .prev');
     const next = document.querySelector('.hero-slider .next');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const heroSlider = document.querySelector('.hero-slider');
     let index = 0;
+    let isPlaying = true;
+    let slideInterval;
   
     function showSlide(i) {
       if (i < 0) {
@@ -178,11 +185,114 @@
       const offset = -index * 100;
       document.querySelector('.hero-slider .slides').style.transform = `translateX(${offset}%)`;
     }
+    
+    function startSlideshow() {
+      slideInterval = setInterval(() => showSlide(index + 1), 10000);
+    }
+    
+    function stopSlideshow() {
+      clearInterval(slideInterval);
+    }
+    
+    function togglePlayPause() {
+      if (isPlaying) {
+        stopSlideshow();
+        playPauseBtn.textContent = '▶️';
+        isPlaying = false;
+      } else {
+        startSlideshow();
+        playPauseBtn.textContent = '⏸️';
+        isPlaying = true;
+      }
+    }
+    
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        heroSlider.requestFullscreen().catch(err => {
+          console.log('Error attempting to enable fullscreen:', err);
+        });
+        fullscreenBtn.textContent = '⛶';
+      } else {
+        document.exitFullscreen();
+        fullscreenBtn.textContent = '⛶';
+      }
+    }
+    
+    function handleFullscreenChange() {
+      if (document.fullscreenElement) {
+        // Entered fullscreen
+        heroSlider.style.width = '100vw';
+        heroSlider.style.height = '100vh';
+        heroSlider.style.maxWidth = 'none';
+        heroSlider.style.maxHeight = 'none';
+        heroSlider.style.margin = '0';
+        heroSlider.style.padding = '0';
+        heroSlider.style.background = 'black';
+        
+        // Update slides container
+        const slidesContainer = document.querySelector('.hero-slider .slides');
+        slidesContainer.style.width = '100vw';
+        slidesContainer.style.height = '100vh';
+        
+        // Update individual slides
+        slides.forEach(slide => {
+          slide.style.width = '100vw';
+          slide.style.height = '100vh';
+          const img = slide.querySelector('img');
+          if (img) {
+            img.style.width = '100vw';
+            img.style.height = '100vh';
+            img.style.objectFit = 'contain';
+            img.style.objectPosition = 'center';
+          }
+        });
+        
+        fullscreenBtn.textContent = '⛶';
+      } else {
+        // Exited fullscreen
+        heroSlider.style.width = '';
+        heroSlider.style.height = '';
+        heroSlider.style.maxWidth = '';
+        heroSlider.style.maxHeight = '';
+        heroSlider.style.margin = '';
+        heroSlider.style.padding = '';
+        heroSlider.style.background = '';
+        
+        // Reset slides container
+        const slidesContainer = document.querySelector('.hero-slider .slides');
+        slidesContainer.style.width = '';
+        slidesContainer.style.height = '';
+        
+        // Reset individual slides
+        slides.forEach(slide => {
+          slide.style.width = '';
+          slide.style.height = '';
+          const img = slide.querySelector('img');
+          if (img) {
+            img.style.width = '';
+            img.style.height = '';
+            img.style.objectFit = '';
+            img.style.objectPosition = '';
+          }
+        });
+        
+        fullscreenBtn.textContent = '⛶';
+      }
+    }
   
     prev.addEventListener('click', () => showSlide(index - 1));
     next.addEventListener('click', () => showSlide(index + 1));
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    
+    // Handle fullscreen change events
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
   
-    setInterval(() => showSlide(index + 1), 10000);
+    // Start the slideshow
+    startSlideshow();
   </script>
   <script>
   function toggleMenu() {
