@@ -200,12 +200,14 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    max-height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
+    overflow: hidden;
   }
   
   .mobile-nav-overlay.active {
@@ -217,9 +219,12 @@ html {
     background-color: yellow;
     width: 85%;
     max-width: 320px;
-    height: 100%;
-    padding: 100px 25px 25px;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 80px 25px 50px;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
@@ -228,6 +233,9 @@ html {
     display: block;
     visibility: visible;
     opacity: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #0a5909 rgba(255, 255, 0, 0.3);
+    box-sizing: border-box;
   }
   
   .mobile-nav-overlay.active .mobile-nav-content {
@@ -254,6 +262,7 @@ html {
   
   .mobile-nav-content a:last-child {
     border-bottom: none;
+    margin-bottom: 20px;
   }
   
   .mobile-nav-title {
@@ -284,6 +293,33 @@ html {
   
   .mobile-nav-overlay.active .mobile-nav-title {
     color: #0a5909 !important;
+  }
+  
+  /* Custom scrollbar for mobile nav */
+  .mobile-nav-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .mobile-nav-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 0, 0.3);
+    border-radius: 3px;
+  }
+  
+  .mobile-nav-content::-webkit-scrollbar-thumb {
+    background: #0a5909;
+    border-radius: 3px;
+  }
+  
+  .mobile-nav-content::-webkit-scrollbar-thumb:hover {
+    background: #0d6b0c;
+  }
+  
+  /* Ensure mobile nav content is properly scrollable */
+  .mobile-nav-overlay.active .mobile-nav-content {
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   /* Placeholder body */
@@ -1237,5 +1273,48 @@ html {
 .purchase-btn:hover {
   background: #228B22;
   transform: translateY(-2px);
+}
+
+/* Core Values List Styling */
+.core-values-list {
+  list-style: none !important;
+  padding: 0;
+  margin: 20px 0;
+  padding-left: 0;
+}
+
+.core-values-list li {
+  color: black;
+  padding: 8px 0;
+  font-weight: bold;
+  font-size: 1.1em;
+  position: relative;
+  padding-left: 25px;
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+.core-values-list li::before {
+  content: "•";
+  color: #0a5909;
+  font-weight: bold;
+  font-size: 1.5em;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Mobile responsiveness for core values */
+@media (max-width: 768px) {
+  .core-values-list li {
+    font-size: 1em;
+    padding: 6px 0;
+    padding-left: 25px;
+  }
+  
+  .core-values-list li::before {
+    font-size: 1.3em;
+  }
 }
 
