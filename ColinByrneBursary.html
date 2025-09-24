@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Colin Byrne Bursary - HWH Bunclody GAA</title>
-  <link rel="stylesheet" href="styles.css?v=1.2">
+  <link rel="stylesheet" href="styles.css?v=3.0">
 </head>
 <body>
   <!-- Header -->
@@ -216,7 +216,9 @@
             console.log('Error attempting to enable fullscreen:', err);
           });
         } else if (cbSlider.webkitRequestFullscreen) {
-          cbSlider.webkitRequestFullscreen();
+          cbSlider.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT).catch(err => {
+            console.log('Error attempting to enable webkit fullscreen:', err);
+          });
         } else if (cbSlider.mozRequestFullScreen) {
           cbSlider.mozRequestFullScreen();
         } else if (cbSlider.msRequestFullscreen) {
@@ -226,7 +228,9 @@
       } else {
         // Exit fullscreen
         if (document.exitFullscreen) {
-          document.exitFullscreen();
+          document.exitFullscreen().catch(err => {
+            console.log('Error attempting to exit fullscreen:', err);
+          });
         } else if (document.webkitExitFullscreen) {
           document.webkitExitFullscreen();
         } else if (document.mozCancelFullScreen) {
@@ -332,7 +336,13 @@
     cbFullscreenBtn.addEventListener('click', toggleCBFullscreen);
     cbFullscreenBtn.addEventListener('touchend', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       toggleCBFullscreen();
+    });
+    
+    // Add touchstart to prevent default behaviors
+    cbFullscreenBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
     });
     
     // Handle fullscreen change events for all browsers
@@ -350,6 +360,22 @@
     window.addEventListener('resize', function() {
       setTimeout(handleCBFullscreenChange, 100);
     });
+    
+    // Add mobile-specific fullscreen improvements
+    if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      // Force viewport meta tag for mobile fullscreen
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+      }
+      
+      // Add mobile-specific touch handling
+      cbSlider.addEventListener('touchstart', function(e) {
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    }
 
     // Start the slideshow
     startCBSlideshow();
