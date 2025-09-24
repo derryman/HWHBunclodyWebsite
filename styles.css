@@ -76,60 +76,66 @@ html {
     border-radius: 5px;
   }
   
-  /* Top Header */
-  .top-header {
-    background-color: #0a5909; /* Dark Green */
-    color: yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 40px;
-    position: relative;
+  /* Header Styles */
+  .header {
+    background-color: #0b4d0b; /* dark green like image */
+    padding: 25px 40px;
+    color: white;
   }
-  
-  .club-center {
+
+  .header-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .club-logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+  }
+
+  .club-name {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 30px;
+  }
+
+  .club-name h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .club-name p {
+    font-size: 1.1rem;
+    margin: 8px 0 0;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .social-icons {
+    display: flex;
     gap: 20px;
   }
-  
-  .club-left, .club-right {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .club-logo img {
-    height: 100px;  /* smaller than before */
-    width: 100px;
-    border-radius: 50%;  /* makes it circular */
-    object-fit: cover;   /* keeps it nicely inside the circle */
-    border: 1.5px solid yellow; /* optional accent */
-  }
-  
-  /* Social Icons aligned to far right */
-  .social-icons {
-    position: absolute;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .social-icons a {
-    color: yellow;
-    text-decoration: none;
-    font-size: 1.2em;
-  }
+
   .social-icons img {
-    width: 28px;   /* adjust size */
-    height: 28px;
-    object-fit: contain;
-    filter: brightness(0) invert(1); /* makes them white/yellowish if needed */
-    transition: transform 0.2s;
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) invert(1); /* makes them white */
+    transition: transform 0.2s ease;
   }
-  
+
   .social-icons img:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
   }
   
   /* Navigation Bar */
@@ -858,42 +864,44 @@ html {
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     /* Header adjustments */
-    .top-header {
+    .header {
+        padding: 20px 25px;
+    }
+    
+    .header-container {
         flex-direction: column;
-        padding: 15px 10px;
+        gap: 20px;
         text-align: center;
-        min-height: auto;
-    }
-    
-    .club-center {
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-    
-    .club-left, .club-right {
-        font-size: 1.1em;
-        margin: 0;
     }
     
     .club-logo img {
-        height: 70px;
-        width: 70px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .club-name {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .club-name h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .club-name p {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
     }
     
     .social-icons {
-        position: static;
         justify-content: center;
-        margin-top: 8px;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 8px;
+        gap: 15px;
     }
     
     .social-icons img {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
     }
     
     
@@ -1157,58 +1165,38 @@ html {
 /* Very small mobile devices */
 @media (max-width: 480px) {
     /* Header for very small screens */
-    .top-header {
-        padding: 12px 8px;
+    .header {
+        padding: 15px 20px;
     }
     
-    .club-center {
-        gap: 6px;
-        margin-bottom: 8px;
-    }
-    
-    .club-left, .club-right {
-        font-size: 0.95em;
+    .header-container {
+        gap: 15px;
     }
     
     .club-logo img {
-        height: 55px;
-        width: 55px;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .club-name h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .club-name p {
+        font-size: 0.8rem;
+        letter-spacing: 0.8px;
     }
     
     .social-icons {
-        margin-top: 6px;
-        gap: 6px;
+        gap: 12px;
     }
     
     .social-icons img {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
     }
     
-    
-    .club-center {
-        gap: 6px;
-        margin-bottom: 8px;
-    }
-    
-    .club-left, .club-right {
-        font-size: 0.95em;
-    }
-    
-    .club-logo img {
-        height: 55px;
-        width: 55px;
-    }
-    
-    .social-icons {
-        margin-top: 6px;
-        gap: 6px;
-    }
-    
-    .social-icons img {
-        width: 22px;
-        height: 22px;
-    }
     
     /* Navigation for very small screens */
     nav {
@@ -1400,39 +1388,42 @@ html {
         max-height: 240px; /* reduced from 300px by 20% */
     }
     
-    .top-header {
-        padding: 10px 8px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .header {
+        padding: 15px 20px;
     }
     
-    .club-center {
+    .header-container {
         flex-direction: row;
-        gap: 10px;
-        margin-bottom: 0;
-        flex: 1;
-        justify-content: center;
-    }
-    
-    .club-left, .club-right {
-        font-size: 1em;
+        gap: 20px;
     }
     
     .club-logo img {
-        height: 50px;
-        width: 50px;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .club-name {
+        margin-left: 15px;
+        text-align: left;
+    }
+    
+    .club-name h1 {
+        font-size: 1.4rem;
+        letter-spacing: 0.2px;
+    }
+    
+    .club-name p {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
     }
     
     .social-icons {
-        position: static;
-        margin-top: 0;
-        gap: 6px;
+        gap: 12px;
     }
     
     .social-icons img {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
     }
     
     .hero-image {
