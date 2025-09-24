@@ -76,7 +76,37 @@ html {
     border-radius: 5px;
   }
   
-  /* Top Header */
+  /* Hero Header with Background Image */
+  .hero-header {
+    position: relative;
+    width: 100%;
+    height: 40vh; /* Slightly increased to show full logo */
+    overflow: hidden;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .hero-header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-header-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Top Header (fallback) */
   .top-header {
     background-color: #0a5909; /* Dark Green */
     color: yellow;
@@ -92,11 +122,14 @@ html {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 20px;
   }
   
   .club-left, .club-right {
     font-size: 1.5em;
     font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
   
   .club-logo img {
@@ -104,32 +137,35 @@ html {
     width: 100px;
     border-radius: 50%;  /* makes it circular */
     object-fit: cover;   /* keeps it nicely inside the circle */
-    border: 1.5px solid yellow; /* optional accent */
+    border: 1.5px solid white; /* white border for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  /* Social Icons aligned to far right */
-  .social-icons {
-    position: absolute;
-    right: 20px;
+  /* Social Icons positioned at bottom-right of hero header */
+  .hero-header-content .social-icons {
     display: flex;
     gap: 10px;
   }
   
   .social-icons a {
-    color: yellow;
+    color: white;
     text-decoration: none;
     font-size: 1.2em;
   }
   .social-icons img {
-    width: 28px;   /* adjust size */
-    height: 28px;
+    width: 32px;   /* slightly larger for better visibility */
+    height: 32px;
     object-fit: contain;
-    filter: brightness(0) invert(1); /* makes them white/yellowish if needed */
+    filter: brightness(0) invert(1); /* makes them white */
     transition: transform 0.2s;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 4px;
   }
   
   .social-icons img:hover {
     transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.5);
   }
   
   /* Navigation Bar */
@@ -762,6 +798,17 @@ html {
         top: 10px;
         padding: 8px;
         font-size: 14px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .hero-slider .play-pause {
@@ -771,11 +818,101 @@ html {
     .hero-slider .fullscreen {
         right: 10px;
     }
+    
+    /* Mobile fullscreen specific styles */
+    .hero-slider:fullscreen,
+    .hero-slider:-webkit-full-screen,
+    .hero-slider:-moz-full-screen,
+    .hero-slider:-ms-fullscreen {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: black !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 9999 !important;
+    }
+    
+    .hero-slider:fullscreen .slides,
+    .hero-slider:-webkit-full-screen .slides,
+    .hero-slider:-moz-full-screen .slides,
+    .hero-slider:-ms-fullscreen .slides {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+    
+    .hero-slider:fullscreen .slide,
+    .hero-slider:-webkit-full-screen .slide,
+    .hero-slider:-moz-full-screen .slide,
+    .hero-slider:-ms-fullscreen .slide {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+    
+    .hero-slider:fullscreen .slide img,
+    .hero-slider:-webkit-full-screen .slide img,
+    .hero-slider:-moz-full-screen .slide img,
+    .hero-slider:-ms-fullscreen .slide img {
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+    
+    /* Ensure fullscreen controls are visible on mobile */
+    .hero-slider:fullscreen .play-pause,
+    .hero-slider:fullscreen .fullscreen,
+    .hero-slider:-webkit-full-screen .play-pause,
+    .hero-slider:-webkit-full-screen .fullscreen,
+    .hero-slider:-moz-full-screen .play-pause,
+    .hero-slider:-moz-full-screen .fullscreen,
+    .hero-slider:-ms-fullscreen .play-pause,
+    .hero-slider:-ms-fullscreen .fullscreen {
+        position: absolute !important;
+        z-index: 10000 !important;
+        background: rgba(0, 0, 0, 0.8) !important;
+        color: white !important;
+        border: none !important;
+        padding: 12px !important;
+        cursor: pointer !important;
+        border-radius: 5px !important;
+        font-size: 16px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
 }
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-    /* Header adjustments */
+    /* Hero Header adjustments */
+    .hero-header {
+        height: 32vh; /* Slightly increased to show full logo */
+        max-height: 280px; /* Slightly increased */
+    }
+    
+    .hero-header-content {
+        padding: 15px;
+    }
+    
+    .hero-header-content .social-icons {
+        gap: 8px;
+    }
+    
+    .social-icons img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Header adjustments (fallback) */
     .top-header {
         flex-direction: column;
         padding: 15px 10px;
@@ -1073,7 +1210,26 @@ html {
 
 /* Very small mobile devices */
 @media (max-width: 480px) {
-    /* Header for very small screens */
+    /* Hero Header for very small screens */
+    .hero-header {
+        height: 28vh; /* Slightly increased to show full logo */
+        max-height: 240px; /* Slightly increased */
+    }
+    
+    .hero-header-content {
+        padding: 10px;
+    }
+    
+    .hero-header-content .social-icons {
+        gap: 6px;
+    }
+    
+    .social-icons img {
+        width: 22px;
+        height: 22px;
+    }
+    
+    /* Header for very small screens (fallback) */
     .top-header {
         padding: 12px 8px;
     }
@@ -1281,15 +1437,33 @@ html {
         height: 20px;
     }
     
-    /* Hero images for mobile landscape - reduced by 25% */
+    /* Hero images for mobile landscape - reduced by 20% */
     .hero1 {
-        height: 19vh; /* reduced from 25vh by 25% */
-        max-height: 150px; /* reduced from 200px by 25% */
+        height: 20vh; /* reduced from 25vh by 20% */
+        max-height: 160px; /* reduced from 200px by 20% */
     }
     
     .hero {
-        height: 26vh; /* reduced from 35vh by 25% */
-        max-height: 225px; /* reduced from 300px by 25% */
+        height: 28vh; /* reduced from 35vh by 20% */
+        max-height: 240px; /* reduced from 300px by 20% */
+    }
+    
+    .hero-header {
+        height: 24vh; /* Slightly increased to show full logo */
+        max-height: 200px; /* Slightly increased */
+    }
+    
+    .hero-header-content {
+        padding: 10px;
+    }
+    
+    .hero-header-content .social-icons {
+        gap: 6px;
+    }
+    
+    .social-icons img {
+        width: 20px;
+        height: 20px;
     }
     
     .hero-image {
@@ -1523,6 +1697,375 @@ html {
   
   .core-values-list li::before {
     font-size: 1.3em;
+  }
+}
+
+/* Colin Byrne Bursary Page Styling */
+.bursary-content {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.bursary-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0a5909;
+}
+
+.bursary-content h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0a5909;
+}
+
+.bursary-content h3 {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #0a5909;
+  text-align: left;
+}
+
+.bursary-content p {
+  margin: 15px 0;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Bursary Images Section */
+.bursary-images {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.colin-image, .logo-image {
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.standalone-image {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.image-caption {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #0a5909;
+  font-size: 1.1rem;
+}
+
+/* Bursary Info Section */
+.bursary-info {
+  text-align: left;
+  margin: 30px 0;
+}
+
+/* Bursary Slideshow */
+.bursary-slideshow {
+  margin-top: 40px;
+}
+
+.bursary-slideshow h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0a5909;
+  margin-bottom: 20px;
+}
+
+.cb-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+  aspect-ratio: 16 / 9;
+}
+
+.cb-slider .cb-slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  height: 100%;
+}
+
+.cb-slider .cb-slide {
+  min-width: 100%;
+}
+
+.cb-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CB Slider Controls */
+.cb-slider .cb-prev,
+.cb-slider .cb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.cb-slider .cb-prev:hover,
+.cb-slider .cb-next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.cb-slider .cb-prev { left: 15px; }
+.cb-slider .cb-next { right: 15px; }
+
+/* CB Play/Pause and Fullscreen buttons */
+.cb-slider .cb-play-pause,
+.cb-slider .cb-fullscreen {
+  position: absolute;
+  top: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.cb-slider .cb-play-pause {
+  right: 60px;
+}
+
+.cb-slider .cb-fullscreen {
+  right: 15px;
+}
+
+.cb-slider .cb-play-pause:hover,
+.cb-slider .cb-fullscreen:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* CB Fullscreen styles */
+.cb-slider:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: black;
+}
+
+.cb-slider:fullscreen .cb-slides {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.cb-slider:fullscreen .cb-slide {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.cb-slider:fullscreen .cb-slide img {
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Webkit fullscreen support for CB slider */
+.cb-slider:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: black;
+}
+
+.cb-slider:-webkit-full-screen .cb-slides {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.cb-slider:-webkit-full-screen .cb-slide {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.cb-slider:-webkit-full-screen .cb-slide img {
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Mobile Responsive Styles for Bursary Page */
+@media (max-width: 768px) {
+  .bursary-content {
+    padding: 20px 15px;
+  }
+  
+  .bursary-content h1 {
+    font-size: 2rem;
+  }
+  
+  .bursary-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .bursary-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .bursary-content p {
+    font-size: 1rem;
+  }
+  
+  .bursary-images {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .colin-image, .logo-image {
+    min-width: 200px;
+    max-width: 100%;
+  }
+  
+  .standalone-image {
+    max-width: 250px;
+    height: 250px;
+  }
+  
+  .image-caption {
+    font-size: 1rem;
+  }
+  
+  .cb-slider {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .cb-slider .cb-play-pause,
+  .cb-slider .cb-fullscreen {
+    top: 10px;
+    padding: 8px;
+    font-size: 14px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .cb-slider .cb-play-pause {
+    right: 50px;
+  }
+  
+  .cb-slider .cb-fullscreen {
+    right: 10px;
+  }
+  
+  /* Mobile fullscreen specific styles for CB slider */
+  .cb-slider:fullscreen,
+  .cb-slider:-webkit-full-screen,
+  .cb-slider:-moz-full-screen,
+  .cb-slider:-ms-fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: black !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+  }
+  
+  .cb-slider:fullscreen .cb-slides,
+  .cb-slider:-webkit-full-screen .cb-slides,
+  .cb-slider:-moz-full-screen .cb-slides,
+  .cb-slider:-ms-fullscreen .cb-slides {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  
+  .cb-slider:fullscreen .cb-slide,
+  .cb-slider:-webkit-full-screen .cb-slide,
+  .cb-slider:-moz-full-screen .cb-slide,
+  .cb-slider:-ms-fullscreen .cb-slide {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  
+  .cb-slider:fullscreen .cb-slide img,
+  .cb-slider:-webkit-full-screen .cb-slide img,
+  .cb-slider:-moz-full-screen .cb-slide img,
+  .cb-slider:-ms-fullscreen .cb-slide img {
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  
+  /* Ensure fullscreen controls are visible on mobile for CB slider */
+  .cb-slider:fullscreen .cb-play-pause,
+  .cb-slider:fullscreen .cb-fullscreen,
+  .cb-slider:-webkit-full-screen .cb-play-pause,
+  .cb-slider:-webkit-full-screen .cb-fullscreen,
+  .cb-slider:-moz-full-screen .cb-play-pause,
+  .cb-slider:-moz-full-screen .cb-fullscreen,
+  .cb-slider:-ms-fullscreen .cb-play-pause,
+  .cb-slider:-ms-fullscreen .cb-fullscreen {
+    position: absolute !important;
+    z-index: 10000 !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px !important;
+    cursor: pointer !important;
+    border-radius: 5px !important;
+    font-size: 16px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 }
 

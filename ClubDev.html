@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>HWH Bunclody GAA</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -55,6 +55,7 @@
           <a href="#">More ▾</a>
           <div class="dropdown-content">
             <a href="Mission.html">Mission</a>
+            <a href="ColinByrneBursary.html">Colin Byrne Bursary</a>
             <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
             <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
           </div>
@@ -74,6 +75,7 @@
         <a href="https://play.clubforce.com/play_newa.asp?ll_id=2205#Anchor">Lotto</a>
         <a href="https://www.universe.com/explore?query=hwh+bunclody">Match Tickets</a>
         <a href="Mission.html">Mission</a>
+        <a href="ColinByrneBursary.html">Colin Byrne Bursary</a>
         <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
         <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
       </div>
@@ -207,19 +209,39 @@
     }
     
     function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        heroSlider.requestFullscreen().catch(err => {
-          console.log('Error attempting to enable fullscreen:', err);
-        });
+      if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+        // Try different fullscreen APIs for cross-browser compatibility
+        if (heroSlider.requestFullscreen) {
+          heroSlider.requestFullscreen().catch(err => {
+            console.log('Error attempting to enable fullscreen:', err);
+          });
+        } else if (heroSlider.webkitRequestFullscreen) {
+          heroSlider.webkitRequestFullscreen();
+        } else if (heroSlider.mozRequestFullScreen) {
+          heroSlider.mozRequestFullScreen();
+        } else if (heroSlider.msRequestFullscreen) {
+          heroSlider.msRequestFullscreen();
+        }
         fullscreenBtn.textContent = '⛶';
       } else {
-        document.exitFullscreen();
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
         fullscreenBtn.textContent = '⛶';
       }
     }
     
     function handleFullscreenChange() {
-      if (document.fullscreenElement) {
+      const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+      
+      if (isFullscreen) {
         // Entered fullscreen
         heroSlider.style.width = '100vw';
         heroSlider.style.height = '100vh';
@@ -228,6 +250,10 @@
         heroSlider.style.margin = '0';
         heroSlider.style.padding = '0';
         heroSlider.style.background = 'black';
+        heroSlider.style.position = 'fixed';
+        heroSlider.style.top = '0';
+        heroSlider.style.left = '0';
+        heroSlider.style.zIndex = '9999';
         
         // Update slides container
         const slidesContainer = document.querySelector('.hero-slider .slides');
@@ -257,6 +283,10 @@
         heroSlider.style.margin = '';
         heroSlider.style.padding = '';
         heroSlider.style.background = '';
+        heroSlider.style.position = '';
+        heroSlider.style.top = '';
+        heroSlider.style.left = '';
+        heroSlider.style.zIndex = '';
         
         // Reset slides container
         const slidesContainer = document.querySelector('.hero-slider .slides');
@@ -280,16 +310,48 @@
       }
     }
   
+    // Add both click and touch events for better mobile support
     prev.addEventListener('click', () => showSlide(index - 1));
-    next.addEventListener('click', () => showSlide(index + 1));
-    playPauseBtn.addEventListener('click', togglePlayPause);
-    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    prev.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      showSlide(index - 1);
+    });
     
-    // Handle fullscreen change events
+    next.addEventListener('click', () => showSlide(index + 1));
+    next.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      showSlide(index + 1);
+    });
+    
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    playPauseBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      togglePlayPause();
+    });
+    
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    fullscreenBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      toggleFullscreen();
+    });
+    
+    // Handle fullscreen change events for all browsers
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
     document.addEventListener('mozfullscreenchange', handleFullscreenChange);
     document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    
+    // Add orientation change handler for mobile devices
+    window.addEventListener('orientationchange', function() {
+      // Small delay to allow orientation change to complete
+      setTimeout(handleFullscreenChange, 100);
+    });
+    
+    // Add resize handler for mobile devices
+    window.addEventListener('resize', function() {
+      // Small delay to allow resize to complete
+      setTimeout(handleFullscreenChange, 100);
+    });
   
     // Start the slideshow
     startSlideshow();
