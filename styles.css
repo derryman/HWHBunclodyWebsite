@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* professional light gradient */
+    background-color: #f5f5f5; /* light grey background */
     overflow-x: hidden; /* Prevent horizontal scroll */
     width: 100%;
     max-width: 100vw;
@@ -16,76 +16,41 @@ html {
     margin: 0;
     padding: 0;
 }
-  .hero1 {
-    position: relative;
-    width: 100%;
-    height: 65vh; /* adjusted height for better proportions */
-    overflow: hidden;
-    max-width: 100vw;
-    box-sizing: border-box;
-    margin: 20px 0;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    border: 2px solid #0b4d0b; /* club green border */
-    background: linear-gradient(135deg, #0b4d0b 0%, #1a6b1a 100%); /* green gradient background */
-  }
-  
-  .hero1-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    gap: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  .hero1-left {
-    flex: 0.4; /* 40% width for stone image */
-    height: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .hero1-right {
-    flex: 0.6; /* 60% width for players image - more space */
-    height: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-  }
-  
   .hero1-welcome {
     text-align: center;
-    padding: 15px 10px 10px 10px;
     color: white;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px 8px 0 0;
+    background: linear-gradient(135deg, #0b4d0b 0%, #1a6b1a 100%);
+    padding: 30px 20px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #0b4d0b;
   }
   
   .hero1-welcome h2 {
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
   }
   
   .hero1-image {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* shows full image without any cropping */
-    border-radius: 10px; /* slightly more rounded corners */
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #0b4d0b;
+    background: linear-gradient(135deg, #0b4d0b 0%, #1a6b1a 100%);
+    padding: 10px;
+    overflow: hidden;
   }
   
-  .hero1-left .hero1-image {
-    object-position: center; /* centers the stone image to show full monument */
-  }
-  
-  .hero1-right .hero1-image {
-    object-position: center; /* centers the players image to show more content */
+  .hero1-bg-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
   
   .hero {
@@ -129,14 +94,12 @@ html {
     position: relative;
   }
   
-  .hero-right .hero-image {
-    object-position: center -10px; /* crops 10px from bottom to show more top content */
-  }
+
   
   .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* shows full image without any cropping */
+    object-fit: cover; /* zooms in slightly on the image */
     border-radius: 10px;
   }
   
@@ -168,6 +131,9 @@ html {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    white-space: nowrap;
+    min-width: fit-content;
+    display: inline-block;
   }
   
   /* Header Styles */
@@ -1146,20 +1112,23 @@ html {
         height: 250px !important;
     }
     
-    /* Hero image adjustments for mobile - increased to show more content */
-    .hero1 {
-        height: 45vh; /* adjusted for mobile with welcome text */
-        max-height: 350px; /* adjusted for better fit */
-        margin: 15px 0;
+    /* Hero welcome text for mobile */
+    .hero1-welcome {
+        padding: 25px 20px;
+        margin: 8px 0;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border: 2px solid #0b4d0b; /* club green border */
-        background: linear-gradient(135deg, #0b4d0b 0%, #1a6b1a 100%); /* green gradient background */
     }
     
     .hero1-welcome h2 {
-        font-size: 1.4rem; /* smaller text for mobile */
-        padding: 10px 8px 8px 8px;
+        font-size: 1.8rem; /* smaller text for mobile */
+    }
+    
+    /* Hero image for mobile */
+    .hero1-image {
+        margin: 8px 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
     .hero1-container {
@@ -1189,7 +1158,7 @@ html {
     .hero-image {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* shows full image without any cropping */
+        object-fit: cover; /* zooms in slightly on the image */
         object-position: center; /* centers the image content */
         max-width: 100%;
         box-sizing: border-box;
@@ -1209,17 +1178,33 @@ html {
         position: relative;
     }
     
-    /* Hero text adjustments */
+    /* Hero text adjustments for mobile */
     .hero-text {
-        padding: 15px 20px;
+        padding: 12px 18px;
+        margin: 10px;
+        max-width: calc(100% - 20px);
+        box-sizing: border-box;
+        word-wrap: break-word;
     }
     
     .hero-text h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 8px;
     }
     
     .hero-text p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+    
+    /* Button mobile adjustments */
+    .btn {
+        white-space: nowrap;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        min-width: fit-content;
     }
     
     /* Purchase button mobile */
@@ -1352,20 +1337,23 @@ html {
         display: none !important;
     }
     
-    /* Hero images for very small screens - increased to show more content */
-    .hero1 {
-        height: 35vh; /* adjusted for small screens with welcome text */
-        max-height: 250px; /* adjusted for better fit */
-        margin: 10px 0;
+    /* Hero welcome text for small screens */
+    .hero1-welcome {
+        padding: 20px 15px;
+        margin: 6px 0;
         border-radius: 6px;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        border: 2px solid #0b4d0b; /* club green border */
-        background: linear-gradient(135deg, #0b4d0b 0%, #1a6b1a 100%); /* green gradient background */
     }
     
     .hero1-welcome h2 {
-        font-size: 1.2rem; /* smaller text for small screens */
-        padding: 8px 6px 6px 6px;
+        font-size: 1.4rem; /* smaller text for small screens */
+    }
+    
+    /* Hero image for small screens */
+    .hero1-image {
+        margin: 6px 0;
+        border-radius: 6px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     }
     
     .hero1-container {
@@ -1395,7 +1383,7 @@ html {
     .hero-image {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* shows full image without any cropping */
+        object-fit: cover; /* zooms in slightly on the image */
         object-position: center; /* centers the image content */
         max-width: 100%;
         box-sizing: border-box;
@@ -1417,15 +1405,31 @@ html {
     
     /* Hero text for very small screens */
     .hero-text {
-        padding: 10px 15px;
+        padding: 8px 12px;
+        margin: 8px;
+        max-width: calc(100% - 16px);
+        box-sizing: border-box;
+        word-wrap: break-word;
     }
     
     .hero-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        line-height: 1.1;
+        margin-bottom: 6px;
     }
     
     .hero-text p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+    
+    /* Button very small screen adjustments */
+    .btn {
+        white-space: nowrap;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        min-width: fit-content;
     }
     
     /* Tables for very small screens */
@@ -1529,15 +1533,52 @@ html {
         height: 20px;
     }
     
-    /* Hero images for mobile landscape - increased to show more content */
-    .hero1 {
-        height: 26vh; /* increased to show more of both images */
-        max-height: 180px; /* increased for better fit */
-        margin: 8px 0;
+    /* Hero welcome text for mobile landscape */
+    .hero1-welcome {
+        padding: 18px 15px;
+        margin: 5px 0;
         border-radius: 6px;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        border: 2px solid #0b4d0b; /* club green border */
-        background: linear-gradient(135deg, #0b4d0b 0%, #1a6b1a 100%); /* green gradient background */
+    }
+    
+    .hero1-welcome h2 {
+        font-size: 1.2rem; /* smaller text for mobile landscape */
+    }
+    
+    /* Hero image for mobile landscape */
+    .hero1-image {
+        margin: 5px 0;
+        border-radius: 6px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Hero text for mobile landscape */
+    .hero-text {
+        padding: 6px 10px;
+        margin: 6px;
+        max-width: calc(100% - 12px);
+        box-sizing: border-box;
+        word-wrap: break-word;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.2rem;
+        line-height: 1.1;
+        margin-bottom: 4px;
+    }
+    
+    .hero-text p {
+        font-size: 0.8rem;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+    
+    /* Button mobile landscape adjustments */
+    .btn {
+        white-space: nowrap;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        min-width: fit-content;
     }
     
     .hero1-container {
@@ -1605,7 +1646,7 @@ html {
     .hero-image {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* shows full image without any cropping */
+        object-fit: cover; /* zooms in slightly on the image */
         object-position: center; /* centers the image content */
         max-width: 100%;
         box-sizing: border-box;
