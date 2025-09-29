@@ -2246,3 +2246,237 @@ html {
   }
 }
 
+/* One Club Page Styling */
+.one-club-content {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.one-club-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0a5909;
+}
+
+.one-club-content h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0a5909;
+}
+
+.one-club-content h3 {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #0a5909;
+  text-align: left;
+}
+
+.one-club-content p {
+  margin: 15px 0;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Club Logos Section */
+.club-logos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.club-logo-image {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.logo-caption {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #0a5909;
+  font-size: 1.1rem;
+}
+
+/* One Club Introduction */
+.one-club-intro {
+  background: #e8f5e8;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 4px solid #0a5909;
+}
+
+.one-club-intro p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0a5909;
+  margin: 0;
+}
+
+/* SGI Statement */
+.sgi-statement {
+  text-align: left;
+  margin: 30px 0;
+}
+
+.sgi-statement h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #0a5909;
+  margin-bottom: 20px;
+}
+
+.sgi-statement h3 {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #0a5909;
+  text-align: left;
+}
+
+/* Core Principles List */
+.core-principles {
+  margin: 20px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.core-principles li {
+  margin: 15px 0;
+  padding: 15px;
+  background: #f0f8f0;
+  border-radius: 8px;
+  border-left: 4px solid #0a5909;
+  line-height: 1.5;
+}
+
+.core-principles li strong {
+  color: #0a5909;
+  font-size: 1.1rem;
+}
+
+/* SGI Quote */
+.sgi-quote {
+  background: #f8f9fa;
+  border-left: 4px solid #0a5909;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.sgi-quote p {
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.sgi-quote cite {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  color: #0a5909;
+  font-style: normal;
+}
+
+/* SGI Signature */
+.sgi-signature {
+  background: #e8f5e8;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Mobile Responsive Styles for One Club Page */
+@media (max-width: 768px) {
+  .one-club-content {
+    padding: 20px 15px;
+  }
+  
+  .one-club-content h1 {
+    font-size: 2rem;
+  }
+  
+  .one-club-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .one-club-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .one-club-content p {
+    font-size: 1rem;
+  }
+  
+  .club-logos {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .logo-container {
+    min-width: 200px;
+    max-width: 100%;
+  }
+  
+  .club-logo-image {
+    max-width: 150px;
+    height: 150px;
+  }
+  
+  .logo-caption {
+    font-size: 1rem;
+  }
+  
+  .one-club-intro p {
+    font-size: 1.1rem;
+  }
+  
+  .core-principles li {
+    padding: 12px;
+    margin: 10px 0;
+  }
+  
+  .core-principles li strong {
+    font-size: 1rem;
+  }
+  
+  .sgi-quote {
+    padding: 15px;
+  }
+  
+  .sgi-quote p {
+    font-size: 1rem;
+  }
+  
+  .sgi-signature {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+
