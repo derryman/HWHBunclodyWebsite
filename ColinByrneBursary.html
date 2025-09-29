@@ -216,15 +216,23 @@
         if (cbSlider.requestFullscreen) {
           cbSlider.requestFullscreen().catch(err => {
             console.log('Error attempting to enable fullscreen:', err);
+            // Fallback for mobile devices that don't support fullscreen API
+            handleCBFullscreenChange();
           });
         } else if (cbSlider.webkitRequestFullscreen) {
           cbSlider.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT).catch(err => {
             console.log('Error attempting to enable webkit fullscreen:', err);
+            // Fallback for mobile devices that don't support fullscreen API
+            handleCBFullscreenChange();
           });
         } else if (cbSlider.mozRequestFullScreen) {
           cbSlider.mozRequestFullScreen();
         } else if (cbSlider.msRequestFullscreen) {
           cbSlider.msRequestFullscreen();
+        } else {
+          // Fallback for mobile devices that don't support fullscreen API
+          console.log('Fullscreen API not supported, using fallback');
+          handleCBFullscreenChange();
         }
         cbFullscreenBtn.textContent = '⛶';
       } else {
@@ -315,6 +323,12 @@
         cbFullscreenBtn.textContent = '⛶';
       }
     }
+    
+    // Add fullscreen change event listeners
+    document.addEventListener('fullscreenchange', handleCBFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleCBFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleCBFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleCBFullscreenChange);
 
     // Add both click and touch events for better mobile support
     cbPrev.addEventListener('click', () => showCBSlide(cbIndex - 1));
@@ -335,7 +349,13 @@
       toggleCBPlayPause();
     });
     
-    cbFullscreenBtn.addEventListener('click', toggleCBFullscreen);
+    // Enhanced fullscreen button with better mobile support
+    cbFullscreenBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleCBFullscreen();
+    });
+    
     cbFullscreenBtn.addEventListener('touchend', (e) => {
       e.preventDefault();
       e.stopPropagation();

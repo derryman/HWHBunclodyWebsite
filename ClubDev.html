@@ -223,15 +223,23 @@
         if (heroSlider.requestFullscreen) {
           heroSlider.requestFullscreen().catch(err => {
             console.log('Error attempting to enable fullscreen:', err);
+            // Fallback for mobile devices that don't support fullscreen API
+            handleFullscreenChange();
           });
         } else if (heroSlider.webkitRequestFullscreen) {
           heroSlider.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT).catch(err => {
             console.log('Error attempting to enable webkit fullscreen:', err);
+            // Fallback for mobile devices that don't support fullscreen API
+            handleFullscreenChange();
           });
         } else if (heroSlider.mozRequestFullScreen) {
           heroSlider.mozRequestFullScreen();
         } else if (heroSlider.msRequestFullscreen) {
           heroSlider.msRequestFullscreen();
+        } else {
+          // Fallback for mobile devices that don't support fullscreen API
+          console.log('Fullscreen API not supported, using fallback');
+          handleFullscreenChange();
         }
         fullscreenBtn.textContent = '⛶';
       } else {
@@ -322,6 +330,12 @@
         fullscreenBtn.textContent = '⛶';
       }
     }
+    
+    // Add fullscreen change event listeners
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
   
     // Add both click and touch events for better mobile support
     prev.addEventListener('click', () => showSlide(index - 1));
@@ -342,7 +356,13 @@
       togglePlayPause();
     });
     
-    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    // Enhanced fullscreen button with better mobile support
+    fullscreenBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleFullscreen();
+    });
+    
     fullscreenBtn.addEventListener('touchend', (e) => {
       e.preventDefault();
       e.stopPropagation();
