@@ -3,8 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Colin Byrne Bursary - HWH Bunclody GAA</title>
+  <title>Community - HWH Bunclody GAA</title>
   <link rel="stylesheet" href="styles.css?v=3.0">
+  <style>
+    /* Community page specific styles to match Colin Byrne Bursary page */
+    .community-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #0a5909;
+    }
+    
+    .community-info h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #0a5909;
+    }
+    
+    .community-info h3 {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      color: #0a5909;
+      text-align: left;
+    }
+    
+    .community-info p {
+      text-align: left;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    
+    .community-slideshow h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #0a5909;
+      margin-bottom: 20px;
+    }
+    
+    /* See Also Section Styling */
+    .see-also-section {
+      margin: 30px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border-left: 4px solid #0a5909;
+    }
+    
+    .see-also-section h3 {
+      color: #0a5909;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    
+    .see-also-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .see-also-link {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #0a5909;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .see-also-link:hover {
+      background-color: #0b4d0b;
+      color: #fff;
+    }
+    
+    @media (max-width: 768px) {
+      .see-also-links {
+        gap: 8px;
+      }
+      
+      .see-also-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -64,7 +147,7 @@
             <a href="Mission.html">Mission</a>
             <a href="ColinByrneBursary.html">Colin Byrne Bursary</a>
             <a href="OneClub.html">One Club</a>
-            <a href="Community.html">Community</a>
+            <a href="Community.html" class="active">Community</a>
             <a href="https://sites.google.com/clubspot.app/hwh-bunclody-club-app/home">Download App</a>
             <a href="https://www.youtube.com/@hwhbunclodygaa8150">Videos</a>
           </div>
@@ -93,69 +176,81 @@
     </div>
   </nav>
 
-  <!-- Colin Byrne Bursary Content -->
+  <!-- Community Content -->
   <div class="section-container">
     <div class="content-container">
-      <section class="bursary-content">
-        <h1>Colin Byrne Bursary</h1>
+      <section class="community-content">
+        <h1>Community</h1>
         
-        <!-- Colin's Picture and Logo Section -->
-        <div class="bursary-images">
-          <div class="colin-image">
-            <img src="CB Bursary/Colin.jpeg" alt="Colin Byrne" class="standalone-image">
-            <p class="image-caption">Colin Byrne</p>
-          </div>
-          <div class="logo-image">
-            <img src="CB Bursary/CB Logo.png" alt="Colin Byrne Bursary Logo" class="standalone-image">
-          </div>
-        </div>
-
-        <!-- Bursary Information -->
-        <div class="bursary-info">
-          <h2>The Colin Byrne Bursary</h2>
+        <!-- Community Information -->
+        <div class="community-info">
+          <h2>Community Impact</h2>
           <p>
-            The Colin Byrne Bursary was established by the Half Way House Bunclody GAA Club in conjunction with the Byrne Family to provide financial support to a number of training and support programmes with a particular focus on youth development and Gaelic games to ensure that Colin's legacy will live on in assisting young people to maximise their potential.
+            The Half Way House GAA facilities at Church Road have become a linchpin for community wellbeing, sport and social cohesion in Bunclody and surrounding areas. With a floodlit walking track weaving around the grounds, local people of all ages—morning walkers, families after school, older adults—use it daily as a safe, social, traffic-free space for fitness and conversation.
           </p>
           
           <p>
-            It was established in memory of a man whose warmth, generosity, and community spirit touched countless lives. Colin Byrne was known throughout Bunclody and beyond for his kindness and his ability to bring people together. Whether through sport, friendship, or small acts of support, Colin lived with an open heart and a belief in helping others.
+            The indoor hall and well kept pitches are in constant demand. Primary schools — Our Lady of Lourdes NS (Bunclody), Carrigduff NS, Kilmyshall NS, and our secondary schools both the FCJ Secondary School and the Bunclody Community College — regularly book sessions for PE classes, Hurling 365, coaching days, seasonal blitzes and multi-school contests. The access to indoor facilities ensures that even in inclement weather, children can run, jump and interact in safe, supervised settings. This consistent exposure helps foster habits of movement and healthy play from early years.
           </p>
 
+          <h3>Sports Active Wexford</h3>
           <p>
-            The bursary has proudly supported a wide range of local organisations since it was founded in 2023 whose work reflects Colin's values of care, inclusion, and community. Each donation made carries forward Colin's enduring belief in giving back and helping others.
+            Sports Active Wexford complements these efforts through inclusive outreach programmes, for example roadshows like "Fun in the Sun" take place in Church Road, lowering barriers for participation and raising awareness of local club offerings.
           </p>
 
-          <h3>Annual BBQ Fundraiser</h3>
+          <h3>Racing 795 Athletic Club</h3>
           <p>
-            A cornerstone of the bursary's fundraising is the much-loved annual BBQ, which has become a highlight of the local calendar. This event not only raises vital funds but also brings neighbours, friends, and families together in the same spirit that Colin embodied in his favourite haunt the Half Way House. Its continued success is made possible through the generous support of the O'Reilly family and SuperValu Bunclody, who have stood behind the event since it began. Their backing has been invaluable, ensuring the BBQ thrives and the bursary can continue to reach more people and organisations.
+            Our local athletic and adventure club Racing 795, use the facilities for training sessions.
           </p>
 
-          <h3>Impact and Legacy</h3>
+          <h3>HSE Psychosocial Sports Programme</h3>
           <p>
-            The impact of the Colin Byrne Bursary is measured not only in the funds raised but in the lives touched. It has opened opportunities for young people, given vital resources to local groups, and provided tangible support to organisations that make a difference every day.
+            In a further boost to community mental health and inclusion, the HSE psychosocial sports intervention programme launched in our facility and aims to use sport as a vehicle for psychosocial support, engagement and recovery. By embedding structured, therapeutic sport and physical activity opportunities in community settings, the programme was launched in our facility, it amplifies reach, reducing isolation, and helping individuals build social support through shared exercise and team settings.
           </p>
 
+          <h3>Darkness into Light</h3>
           <p>
-            At its heart, the bursary is about legacy and community – honouring Colin by continuing the good he believed in, and showing the extraordinary things that can be achieved when people come together. Through the dedication of the Byrne family, the support of local partners, and the generosity of the community, Colin's name lives on in the positive change created every year.
+            Darkness into Light Bunclody uses our facilities as their base for their very successful walk.
+          </p>
+
+          <h3>Community Campus</h3>
+          <p>
+            In sum, our facilities at Church Road aren't merely just "a pitch and hall"—it's a living community campus. Schools, health services, clubs, charities and families converge there. Children build skills, adults build support networks, and the community measures its strength in steps on the track, passes on the pitch, and smiles in the hall.
           </p>
         </div>
 
+        <!-- See Also Section -->
+        <div class="see-also-section">
+          <h3>See Also</h3>
+          <div class="see-also-links">
+            <a href="https://www.independent.ie/regionals/wexford/enniscorthy-news/hse-launches-psychosocial-sports-intervention-programme-in-county-wexford/a1880776448.html" target="_blank" class="see-also-link">
+              HSE Launches Psychosocial Sports Intervention Programme in County Wexford
+            </a>
+            <a href="https://www.facebook.com/p/Darkness-Into-Light-Bunclody-61567973352561/" target="_blank" class="see-also-link">
+              Darkness Into Light Bunclody - Facebook
+            </a>
+            <a href="https://www.facebook.com/profile/100063548138603/search/?q=bunclody" target="_blank" class="see-also-link">
+              Bunclody Community Facebook
+            </a>
+          </div>
+        </div>
+
         <!-- Slideshow Section -->
-        <div class="bursary-slideshow">
-          <h3>Bursary Gallery</h3>
+        <div class="community-slideshow">
+          <h3>Community Gallery</h3>
           <div class="cb-slider">
             <div class="cb-slides">
               <div class="cb-slide active">
-                <img src="CB Bursary/CB1.jpeg" alt="Colin Byrne Bursary Image 1">
+                <img src="Community/c1.jpeg" alt="Community Image 1">
               </div>
               <div class="cb-slide">
-                <img src="CB Bursary/CB2.jpeg" alt="Colin Byrne Bursary Image 2">
+                <img src="Community/c2.jpeg" alt="Community Image 2">
               </div>
               <div class="cb-slide">
-                <img src="CB Bursary/CB3.jpeg" alt="Colin Byrne Bursary Image 3">
+                <img src="Community/c3.jpeg" alt="Community Image 3">
               </div>
               <div class="cb-slide">
-                <img src="CB Bursary/CB4.jpeg" alt="Colin Byrne Bursary Image 4">
+                <img src="Community/c4.jpeg" alt="Community Image 4">
               </div>
             </div>
             <button class="cb-prev">&#10094;</button>
@@ -169,7 +264,7 @@
   </div>
 
   <script>
-    // Colin Byrne Bursary Slideshow
+    // Community Slideshow - Using same classes as Colin Byrne Bursary
     const cbSlides = document.querySelectorAll('.cb-slider .cb-slide');
     const cbPrev = document.querySelector('.cb-slider .cb-prev');
     const cbNext = document.querySelector('.cb-slider .cb-next');
