@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>HWH Bunclody GAA</title>
   <link rel="stylesheet" href="styles.css?v=3.0">
+  <style>
+    /* iOS Fullscreen Styles for ClubDev slideshow */
+    .ios-fullscreen {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 9999 !important;
+      background: black !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    .ios-fullscreen .slides {
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+    
+    .ios-fullscreen .slide {
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+    
+    .ios-fullscreen .slide img {
+      width: 100vw !important;
+      height: 100vh !important;
+      object-fit: contain !important;
+      object-position: center !important;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -220,6 +251,15 @@
     }
     
     function toggleFullscreen() {
+      // Check if we're on iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      
+      if (isIOS) {
+        // iOS doesn't support fullscreen API, use viewport manipulation instead
+        handleIOSFullscreen();
+        return;
+      }
+      
       if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
         // Try different fullscreen APIs for cross-browser compatibility
         if (heroSlider.requestFullscreen) {
@@ -258,6 +298,44 @@
           document.msExitFullscreen();
         }
         fullscreenBtn.textContent = '⛶';
+      }
+    }
+    
+    function handleIOSFullscreen() {
+      const isFullscreen = heroSlider.classList.contains('ios-fullscreen');
+      
+      if (!isFullscreen) {
+        // Enter iOS "fullscreen" mode
+        heroSlider.classList.add('ios-fullscreen');
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
+        
+        // Hide other elements
+        const header = document.querySelector('.header');
+        const nav = document.querySelector('nav');
+        if (header) header.style.display = 'none';
+        if (nav) nav.style.display = 'none';
+        
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.innerHTML = '✕';
+      } else {
+        // Exit iOS "fullscreen" mode
+        heroSlider.classList.remove('ios-fullscreen');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+        
+        // Show other elements
+        const header = document.querySelector('.header');
+        const nav = document.querySelector('nav');
+        if (header) header.style.display = '';
+        if (nav) nav.style.display = '';
+        
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.innerHTML = '⛶';
       }
     }
     
