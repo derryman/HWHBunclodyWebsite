@@ -27,6 +27,45 @@ html {
     border: 2px solid #0b4d0b;
   }
   
+  .welcome-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .welcome-logo-left {
+    flex: 0 0 auto;
+  }
+  
+  .welcome-text {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .welcome-logos-right {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .welcome-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    background-color: white;
+  }
+  
+  .welcome-logo:hover {
+    transform: scale(1.05);
+  }
+  
   .hero1-welcome h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -1114,14 +1153,38 @@ html {
     
     /* Hero welcome text for mobile */
     .hero1-welcome {
-        padding: 25px 20px;
-        margin: 8px 0;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 25px 20px;
+      margin: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .welcome-content {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+    
+    .welcome-logo-left {
+      order: 1;
+    }
+    
+    .welcome-text {
+      order: 2;
+    }
+    
+    .welcome-logos-right {
+      order: 3;
+      justify-content: center;
+    }
+    
+    .welcome-logo {
+      width: 60px;
+      height: 60px;
     }
     
     .hero1-welcome h2 {
-        font-size: 1.8rem; /* smaller text for mobile */
+      font-size: 1.8rem; /* smaller text for mobile */
     }
     
     /* Hero image for mobile */
@@ -1339,14 +1402,25 @@ html {
     
     /* Hero welcome text for small screens */
     .hero1-welcome {
-        padding: 20px 15px;
-        margin: 6px 0;
-        border-radius: 6px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px 15px;
+      margin: 6px 0;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .welcome-content {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+    
+    .welcome-logo {
+      width: 50px;
+      height: 50px;
     }
     
     .hero1-welcome h2 {
-        font-size: 1.4rem; /* smaller text for small screens */
+      font-size: 1.4rem; /* smaller text for small screens */
     }
     
     /* Hero image for small screens */
@@ -1535,14 +1609,25 @@ html {
     
     /* Hero welcome text for mobile landscape */
     .hero1-welcome {
-        padding: 18px 15px;
-        margin: 5px 0;
-        border-radius: 6px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      padding: 18px 15px;
+      margin: 5px 0;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .welcome-content {
+      flex-direction: row;
+      gap: 15px;
+      text-align: center;
+    }
+    
+    .welcome-logo {
+      width: 45px;
+      height: 45px;
     }
     
     .hero1-welcome h2 {
-        font-size: 1.2rem; /* smaller text for mobile landscape */
+      font-size: 1.2rem; /* smaller text for mobile landscape */
     }
     
     /* Hero image for mobile landscape */
