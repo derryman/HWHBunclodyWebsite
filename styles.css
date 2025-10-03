@@ -705,7 +705,19 @@ html {
 }
 
 .patronage-text .contact-list li {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.patronage-text .contact-list a {
+  color: #0a5909;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.patronage-text .contact-list a:hover {
+  color: #0d6b0c;
+  text-decoration: underline;
 }
 
 /* Video Section */
