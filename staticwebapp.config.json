@@ -1,0 +1,77 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/about",
+      "serve": "/about.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/contact",
+      "serve": "/contact.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/club-development",
+      "serve": "/ClubDev.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/club-history",
+      "serve": "/ClubHistory.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/gallery",
+      "serve": "/Gallery.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/mission",
+      "serve": "/Mission.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/colin-byrne-bursary",
+      "serve": "/ColinByrneBursary.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/one-club",
+      "serve": "/OneClub.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/community",
+      "serve": "/Community.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/package-options",
+      "serve": "/Packageoptions.html",
+      "statusCode": 200
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/images/*.{png,jpg,jpeg,gif,svg,webp}", "/styles/*.css", "/scripts/*.js"]
+  },
+  "mimeTypes": {
+    ".json": "application/json",
+    ".webp": "image/webp"
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}

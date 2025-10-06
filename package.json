@@ -1,0 +1,30 @@
+{
+  "name": "hwh-bunclody-website",
+  "version": "1.0.0",
+  "description": "Official website for HWH Bunclody GAA Club",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000",
+    "dev": "npx http-server . -p 3000 -o",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "echo 'Deployment handled by Azure Static Web Apps'"
+  },
+  "keywords": [
+    "gaa",
+    "bunclody",
+    "sports",
+    "club",
+    "website",
+    "static"
+  ],
+  "author": "HWH Bunclody GAA Club",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/HWHBunclodyWebsite.git"
+  },
+  "homepage": "https://your-static-web-app-url.azurestaticapps.net"
+}
