@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.hwhbunclodygaa.ie/sitemap.xml
+
+# Allow all search engines to crawl the site
+Disallow: /CB Bursary/
+Disallow: /Community/
+Disallow: /Images of Teams/
+
+# Allow access to main pages
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /ClubDev.html
+Allow: /ClubHistory.html
+Allow: /ColinByrneBursary.html
+Allow: /Community.html
+Allow: /Gallery.html
+Allow: /Mission.html
+Allow: /OneClub.html
+Allow: /Packageoptions.html
